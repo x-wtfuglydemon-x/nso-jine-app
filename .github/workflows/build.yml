@@ -25,6 +25,8 @@ jobs:
 
       - name: Build Android APK
         run: |
+          mkdir -p www
+          cp index.html www/
           npm init -y
           npm install @capacitor/core @capacitor/cli @capacitor/android
           npx cap add android
