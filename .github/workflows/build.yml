@@ -15,7 +15,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
 
       - name: Set up Java 21
         uses: actions/setup-java@v4
@@ -31,6 +31,7 @@ jobs:
           npm install @capacitor/core @capacitor/cli @capacitor/android
           npx cap add android
           npx cap sync android
+          echo 'dependencies { implementation(platform("org.jetbrains.kotlin:kotlin-bom:1.8.22")) }' >> android/app/build.gradle
           cd android
           chmod +x gradlew
           ./gradlew assembleDebug
